@@ -5,29 +5,20 @@
 <dict>
   <!-- Unique identifier for the job -->
   <key>Label</key>
-  <string>com.user_name.ignition</string>
+  <string>com.christiandecoske.ignition</string>
 
-  <!-- Run everything through bash so we can chain multiple commands -->
+  <!-- Use the wrapper script -->
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>-lc</string>
-    <string>
-      /usr/bin/python3 '/Users/user_name/path/to/your_script.py' ; \
-      echo "Hello from your plist shell command!" ; \
-      open -a 'Wireshark'
-    </string>
+    <string>/Users/name/Path/To/fuel.sh</string>
   </array>
 
   <!-- Start automatically when you log in -->
   <key>RunAtLoad</key>
   <true/>
 
-  <!-- Keep it alive (if process exits, launchd will restart it) -->
-  <key>KeepAlive</key>
-  <true/>
-
-  <!-- Make sure it only runs in GUI login (needed for 'open -a') -->
+  <!-- Only run in GUI sessions -->
   <key>LimitLoadToSessionType</key>
   <string>Aqua</string>
 </dict>
